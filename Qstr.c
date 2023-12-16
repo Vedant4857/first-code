@@ -1,55 +1,48 @@
-/*Develop a program to create structure of book with book title , author name ,
-price and number of pages . Read the information of n books and display the details of book with highest price .*/
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
 #define SIZE 20
-
-struct book
-{
+struct book_detail {
+    
     char book_title[50];
     char author_name[50];
+    char publication[50];
     int price;
-    int pages;
 };
 
-void output(struct book v[], int num)
-{
+void output(struct book_detail z[],int n) {
 
     int i;
-    for (i = 0; i < num; i++)
-    {
+    for(i = 0;i<n;i++) {
 
-        printf("\n\n\tBook number:%d", i + 1);
+        printf("\n\n\tBook %d details",i+1);
 
-        printf("\nBook %d title = %s ", i + 1, v[i].book_title);
-        printf("\nBook %d author name = %s ", i + 1, v[i].author_name);
-        printf("\nBook %d price = %d ", i + 1, v[i].price);
-        printf("\nBook %d pages = %d ", i + 1, v[i].pages);
+        printf("\nBook title:%s",z[i].book_title);
+        printf("\nAuthor name:%s",z[i].author_name);
+        printf("\nPublication:%s",z[i].publication);
+        printf("\nPrice: %d",z[i].price);
     }
 }
 
-int main()
-{
-    struct book b[SIZE];
-    int n, i;
+int main() {
+    struct book_detail b[SIZE];
+    int i ,num;
     printf("Enter the number of books:");
-    scanf("%d", &n);
-    for (i = 0; i < n; i++)
-    {
+    scanf("%d",&num);
 
-        printf("\t=:Book %d Detail:=\n", i + 1);
+    for(i = 0;i<num;i++){
 
-        printf("Enter the book title: ");
-        scanf("%s", b[i].book_title);
+        printf("\tENTER BOOK NO.%d DETAILS",i+1);
 
-        printf("Enter the author name: ");
-        scanf("%s", b[i].author_name);
+        printf("\nEnter the book title:");
+        scanf("%s",b[i].book_title);
 
-        printf("Enter the book price: ");
-        scanf("%d", &b[i].price);
+        printf("Enter the auhtor name:");
+        scanf("%s",b[i].author_name);
 
-        printf("Enter the no. of pages ");
-        scanf("%d", &b[i].pages);
+        printf("Enter the publication:");
+        scanf("%s",b[i].publication);
+
+        printf("Enter the price:");
+        scanf("%d",&b[i].price);
     }
-    output(b, n);
+     output(b,num);
 }
